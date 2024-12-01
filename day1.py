@@ -46,6 +46,8 @@ def part2():
             list_1_counter[int(ids[1])] = 1
 
         current: str = id_file.readline()
+    
+    print(list_1_counter)
 
     res: int = 0
     for num in list_0:
