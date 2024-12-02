@@ -68,11 +68,14 @@ def part2():
         prev = float('inf')
         is_valid = True
         problem_damped = False
+        i = 0
 
-        for s in data:
-            num: int = int(s)
+
+        while i < len(data):
+            num: int = int(data[i])
             if prev == float('inf'):
                 prev = num
+                i += 1
                 continue
             #print(prev)
             #print(num)
@@ -80,6 +83,9 @@ def part2():
             if abs(prev - num) > 3 or prev == num:
                 if problem_damped == False:
                     problem_damped = True
+                    data.pop(i)
+                    prev = float('inf')
+                    i = 0
                     continue
                 else:
                     is_valid = False
@@ -95,7 +101,9 @@ def part2():
                 if problem_damped == False:
                     problem_damped = True
                     inc_or_dec = 0
-                    prev = num
+                    data.pop(i - 1)
+                    prev = float('inf')
+                    i = 0
                     continue
                 else:
                     is_valid = False
@@ -105,12 +113,15 @@ def part2():
                 if problem_damped == False:
                     problem_damped = True
                     inc_or_dec = 0
-                    prev = num
+                    data.pop(i - 1)
+                    prev = float('inf')
+                    i = 0
                     continue
                 else:
                     is_valid = False
                     break
-
+                    
+            i += 1
             prev = num
 
         
