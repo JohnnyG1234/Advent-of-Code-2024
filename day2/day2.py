@@ -94,6 +94,8 @@ def part2():
             if inc_or_dec == 1 and prev > num:
                 if problem_damped == False:
                     problem_damped = True
+                    inc_or_dec = 0
+                    prev = num
                     continue
                 else:
                     is_valid = False
@@ -102,6 +104,8 @@ def part2():
             if inc_or_dec == -1 and prev < num:
                 if problem_damped == False:
                     problem_damped = True
+                    inc_or_dec = 0
+                    prev = num
                     continue
                 else:
                     is_valid = False
