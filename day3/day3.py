@@ -52,14 +52,14 @@ def part2():
                 do_string += data[j]
             print(do_string)
             if do_string == "do()":
-                do  = False
+                do  = True
             
             do_string = ""
             for j in range(i,i+7):
                 do_string += data[j]
             print(do_string)
             if do_string == "don't()":
-                do  = True
+                do  = False
 
         input_str = ""
         if data[i] == "m":
