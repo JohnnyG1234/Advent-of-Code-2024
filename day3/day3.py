@@ -35,7 +35,48 @@ def part1():
     print(res)
 
 
+def part2():
+    data_file = open("data.txt","r")
 
+    res: int = 0
+    data: str = data_file.read()
+    input_str: str = ""
+
+    do: bool = True
+
+    for i in range(len(data)):
+
+        if data[i] == "d":
+            do_string = ""
+            for j in range(i,i+4):
+                do_string += data[j]
+            print(do_string)
+            if do_string == "do()":
+                do  = False
+            
+            do_string = ""
+            for j in range(i,i+7):
+                do_string += data[j]
+            print(do_string)
+            if do_string == "don't()":
+                do  = True
+
+        input_str = ""
+        if data[i] == "m":
+            j: int = i
+            while data[j] != ")":
+                input_str += data[j]
+                j +=  1
+            input_str +=  data[j]
+        if do:
+            response = try_mul(input_str)
+        else:
+            response = 0
+        if response == 0:
+            continue
+        res += response
+    
+    print(res)
 
             
 
@@ -46,4 +87,5 @@ def part1():
 
 
 if __name__  == "__main__":
-    part1()
+    #part1()
+    part2()
